@@ -3,8 +3,9 @@ import '$services/redis/client';
 import type { GetSession, Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import boxen from 'boxen';
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
 import { DateTime } from 'luxon';
+dotenv.config();
 
 if (!process.env.REDIS_HOST) {
 	console.error(

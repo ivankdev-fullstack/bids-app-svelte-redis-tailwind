@@ -1,5 +1,6 @@
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
 import { join } from 'path';
+dotenv.config();
 
 const { REDIS_HOST, REDIS_PORT, REDIS_PW } = process.env;
 

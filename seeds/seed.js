@@ -1,23 +1,24 @@
-import 'dotenv/config';
-import _ from 'lodash';
-import { createClient } from 'redis';
-import { DateTime } from 'luxon';
+import * as dotenv from 'dotenv';
 import fs from 'fs/promises';
+import _ from 'lodash';
+import { DateTime } from 'luxon';
+import { createClient } from 'redis';
 import {
-	usersKey,
-	usernamesKey,
-	usersItemsKey,
-	usersBidsKey,
-	usersLikesKey,
-	itemsKey,
 	bidHistoryKey,
 	itemsByBidsKey,
-	itemsByViewsKey,
-	itemsByPriceKey,
 	itemsByEndingAtKey,
+	itemsByPriceKey,
+	itemsByViewsKey,
+	itemsKey,
 	itemsViewsKey,
-	usernamesUniqueKey
+	usernamesKey,
+	usernamesUniqueKey,
+	usersBidsKey,
+	usersItemsKey,
+	usersKey,
+	usersLikesKey
 } from './seed-keys.js';
+dotenv.config();
 
 const client = createClient({
 	socket: {
