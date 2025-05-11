@@ -1,11 +1,13 @@
+import { itemsByViewsKey, itemsKey, itemsViewsKey } from '$services/keys';
+import * as dotenv from 'dotenv';
 import { createClient, defineScript } from 'redis';
-import { itemsKey, itemsByViewsKey, itemsViewsKey } from '$services/keys';
 import { createIndexes } from './create-indexes';
+dotenv.config();
 
 const client = createClient({
 	socket: {
 		host: process.env.REDIS_HOST,
-		port: parseInt(process.env.REDIS_PORT)
+		port: parseInt(process.env.REDIS_PORT!)
 	},
 	password: process.env.REDIS_PW,
 	scripts: {
